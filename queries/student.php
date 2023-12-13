@@ -10,7 +10,7 @@
     FROM student s
     INNER JOIN course c ON s.fk_course = c.course_id
 
-    where student_num = $studentNum
+    where s.student_num = $studentNum
     ");
     $student->execute();
     $student->store_result();

@@ -3,7 +3,7 @@
 $hn = "localhost";
 $un = "student_admin";
 $pw = "jeSx@!W1euHa4Kvg";
-$db = "my_clyde";
+$db = "myclyde";
 
 $conn = new mysqli($hn, $un, $pw, $db);
 

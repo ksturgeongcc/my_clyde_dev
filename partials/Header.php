@@ -1,9 +1,9 @@
 <?php
   session_start();
   // college
-  // define('BASE_PATH', 'http://localhost/my_clyde_dev/');h
+  define('BASE_PATH', 'http://localhost/my_clyde_dev/');
   // home
-  define('BASE_PATH', 'http://localhost:8040/my_clyde_dev/');
+  // define('BASE_PATH', 'http://localhost:8040/my_clyde_dev/');
 
 ?>
 <!DOCTYPE html>
