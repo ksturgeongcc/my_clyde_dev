@@ -25,7 +25,17 @@ RewriteRule ^register$ pages/Register.php [L]
 
 # User Navigation
 RewriteRule ^s/dashboard$ pages/student/Dashboard.php [L]
+RewriteRule ^s/course$ pages/student/MyCourse.php [L]
+RewriteRule ^s/account$ pages/student/MyDetails.php [L]
+
+
+# admin Navigation
 RewriteRule ^a/dashboard$ pages/admin/Dashboard.php [L]
+
+# shared
+RewriteRule ^events$ pages/shared/Events.php [L]
+RewriteRule ^news$ pages/shared/News.php [L]
+
 
 
 

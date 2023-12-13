@@ -1,5 +1,4 @@
 <?php
-session_start();
     include '../config/config.php';
     include '../partials/header.php';
 ?>

@@ -30,12 +30,12 @@ if ($stmt = $conn->prepare('SELECT username, password FROM admin WHERE username 
 
         } else {
             $errorMessage = 'Incorrect login details!';
-            header('Location: login'); // Redirect back to the login page
+            header('Location: ../adminlogin'); // Redirect back to the login page
 
         }
     } else {
         $errorMessage = 'Incorrect login details!';
-        header('Location: login'); // Redirect back to the login page
+        header('Location: ../adminlogin'); // Redirect back to the login page
 
     }
 

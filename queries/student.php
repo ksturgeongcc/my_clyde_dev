@@ -1,15 +1,19 @@
 <?php
     $studentNum = $_SESSION['student_num'];
     $student = $conn->prepare("SELECT 
-    student_num, 
-    firstname,
-    surname,
-    email
-    FROM student 
+    s.firstname,
+    s.surname,
+    s.email,
+    c.name,
+    c.award,
+    c.year
+    FROM student s
+    INNER JOIN course c ON s.fk_course = c.course_id
+
     where student_num = $studentNum
     ");
     $student->execute();
     $student->store_result();
-    $student->bind_result($studentNum, $firstname, $surname, $email);
+    $student->bind_result($firstname, $surname, $email, $course, $award, $term);
     $student->fetch();
     ?>

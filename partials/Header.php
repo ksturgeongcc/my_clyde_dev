@@ -1,6 +1,10 @@
 <?php
   session_start();
-  define('BASE_PATH', 'http://localhost/my_clyde_dev/');
+  // college
+  // define('BASE_PATH', 'http://localhost/my_clyde_dev/');h
+  // home
+  define('BASE_PATH', 'http://localhost:8040/my_clyde_dev/');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +23,7 @@
   <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
     <div x-data="{ open: true }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
       <div class="flex flex-row items-center justify-between p-4">
-        <a href="<?= BASE_PATH ?>" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline"><img src="<?= BASE_PATH ?>assets/images/myclydelogo.png" alt="" width="250px"></a>
+        <img src="<?= BASE_PATH ?>assets/images/myclydelogo.png" alt="" width="250px">
         <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
           <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
             <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
@@ -29,7 +33,6 @@
       </div>
   
       <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
-          <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="<?= BASE_PATH ?>welcome">Home</a>   
           <div class="flex items-center space-x-5 hidden md:flex">
             <!-- user navigation -->
             <?php if(!isset($_SESSION['loggedin'])) : ?>
@@ -66,11 +69,11 @@
                     Register
                 </a>
                 <?php elseif(isset($_SESSION['student_num'])) : ?>
-                  <a href="">Student Dashboard</a>
-                  <a href="">Student Course Details</a>
-                  <a href=""> My Details</a>
-                  <a href=""> News</a>
-                  <a href=""> Events</a>
+                  <a href="<?= BASE_PATH ?>s/dashboard">Dashboard</a>
+                  <a href="<?= BASE_PATH ?>s/course">My Course</a>
+                  <a href="<?= BASE_PATH ?>s/account"> My Details</a>
+                  <a href="<?= BASE_PATH ?>news"> News</a>
+                  <a href="<?= BASE_PATH ?>events"> Events</a>
                   <a href="<?= BASE_PATH ?>logout" class="flex text-gray-600 hover:text-blue-500 cursor-pointer transition-colors duration-300" href="">Logout </a>
                   <?php elseif(isset($_SESSION['admin'])) : ?>
                     <a href="">admin login</a>
