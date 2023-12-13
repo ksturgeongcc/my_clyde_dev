@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2023 at 02:57 PM
+-- Generation Time: Dec 13, 2023 at 10:43 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -53,6 +53,14 @@ CREATE TABLE `course` (
   `year` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `course`
+--
+
+INSERT INTO `course` (`course_id`, `name`, `award`, `year`) VALUES
+(1, 'HNDWEBEN-F232A-L', 'HND', '23/24'),
+(2, 'HNDWEBEN-F231A-L', 'HNC', '23/24');
+
 -- --------------------------------------------------------
 
 --
@@ -68,6 +76,17 @@ CREATE TABLE `event` (
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `event`
+--
+
+INSERT INTO `event` (`events_id`, `added_by`, `date`, `description`, `added_on`, `updated_by`) VALUES
+(1, 1, '2023-12-15 10:00:00', 'Welcome Orientation', '2023-12-10 08:30:00', NULL),
+(2, 1, '2023-12-18 14:30:00', 'Guest Lecture on Science and Technology', '2023-12-12 09:45:00', NULL),
+(3, 1, '2023-12-20 09:00:00', 'Sports Day Kick-off', '2023-12-15 11:20:00', NULL),
+(4, 1, '2023-12-22 18:00:00', 'Annual Talent Show', '2023-12-18 15:10:00', NULL),
+(5, 1, '2023-12-25 12:30:00', 'Holiday Celebration', '2023-12-20 14:55:00', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -81,6 +100,17 @@ CREATE TABLE `news` (
   `added_on` datetime DEFAULT NULL,
   `added_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`news_id`, `title`, `description`, `added_on`, `added_by`) VALUES
+(1, 'New Campus Initiatives', 'Exciting new initiatives are coming to our campus to enhance the overall student experience.', '2023-12-15 09:15:00', 1),
+(2, 'Research Symposium Announcement', 'The annual research symposium is scheduled for next month. Submit your abstracts and be a part of this intellectual event.', '2023-12-18 14:00:00', 1),
+(3, 'Career Fair Success', 'Our recent career fair was a tremendous success, with students securing internships and job opportunities from top companies.', '2023-12-20 11:30:00', 1),
+(4, 'Upcoming Alumni Reunion', 'Calling all alumni! Don’t miss the upcoming reunion on January 5th. Reconnect with old friends and share your success stories.', '2023-12-22 17:45:00', 1),
+(5, 'Student Achievements', 'Congratulations to our students for their outstanding achievements in various fields. We are proud of your hard work and dedication!', '2023-12-25 13:45:00', 1);
 
 -- --------------------------------------------------------
 
@@ -106,7 +136,8 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`student_num`, `firstname`, `surname`, `email`, `address`, `postcode`, `dob`, `psw`, `active`, `fk_course`) VALUES
-(12345678, 'asdf', 'asdf', 'asdf@eamil.com', '123', '123', '2023-12-02', '$2y$10$tFsxSzE4JyRWk/lxlctLyuQFyDOoq4g9W31BzBt.mxiWT9WbOyYCS', NULL, NULL);
+(123456, 'Santa', 'Clause', 'santa@email.com', '123', 'g15EH', '2023-12-06', '$2y$10$tFsxSzE4JyRWk/lxlctLyuQFyDOoq4g9W31BzBt.mxiWT9WbOyYCS', 1, 2),
+(12345678, 'Karen', 'Sturgeon', 'asdf@eamil.com', '123', '123', '2023-12-02', '$2y$10$tFsxSzE4JyRWk/lxlctLyuQFyDOoq4g9W31BzBt.mxiWT9WbOyYCS', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -133,6 +164,16 @@ CREATE TABLE `student_enrolment` (
   `fk_student` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `student_enrolment`
+--
+
+INSERT INTO `student_enrolment` (`enrol_id`, `date`, `fk_unit`, `fk_student`) VALUES
+(1, '2023-12-05', 1, 12345678),
+(2, '2023-12-10', 3, 12345678),
+(5, '2023-12-04', 5, 123456),
+(6, '2023-12-04', 4, 123456);
+
 -- --------------------------------------------------------
 
 --
@@ -144,6 +185,17 @@ CREATE TABLE `unit` (
   `name` varchar(11) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `unit`
+--
+
+INSERT INTO `unit` (`unit_id`, `name`, `description`) VALUES
+(1, 'Unit One', 'description of unit one'),
+(2, 'Unit Two', 'description of unit Two'),
+(3, 'Unit Three', 'description of unit three'),
+(4, 'Unit Four', 'description of unit four'),
+(5, 'Unit Five', 'description of unit Five');
 
 --
 -- Indexes for dumped tables
@@ -215,19 +267,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `events_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `events_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `student_comment`
@@ -239,13 +291,13 @@ ALTER TABLE `student_comment`
 -- AUTO_INCREMENT for table `student_enrolment`
 --
 ALTER TABLE `student_enrolment`
-  MODIFY `enrol_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `enrol_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `unit`
 --
 ALTER TABLE `unit`
-  MODIFY `unit_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `unit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

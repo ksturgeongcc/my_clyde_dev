@@ -21,8 +21,8 @@ INSERT INTO `news` (`title`, `description`, `added_on`, `added_by`) VALUES
 
 
 INSERT INTO `unit` (`name`, `description`) VALUES
-(1, 'Unit One', 'description of unit one'),
-(2, 'Unit Two', 'description of unit Two'),
-(3, 'Unit Three', 'description of unit three'),
-(4, 'Unit Four', 'description of unit four'),
-(5, 'Unit Five', 'description of unit Five');
+('Unit One', 'description of unit one'),
+('Unit Two', 'description of unit Two'),
+('Unit Three', 'description of unit three'),
+('Unit Four', 'description of unit four'),
+('Unit Five', 'description of unit Five');
